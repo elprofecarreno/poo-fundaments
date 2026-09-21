@@ -1,10 +1,10 @@
-# Proyecto 10 - CRUD Básico de Personas con Vehículos
+# Proyecto 11 - Persona con dirección, fecha y vehículo
 
-Este proyecto amplía la lógica de menú para gestionar varios registros de personas y permitir buscar por posición o por RUN.
+Este proyecto consolida la relación entre la persona y su contexto completo: dirección, fecha de nacimiento y vehículo asociado.
 
 ## ¿Qué hace?
 
-La aplicación crea personas, agrega una dirección y un vehículo, y las almacena en una lista. Desde el menú se pueden listar todas las personas, buscar por índice o por RUN, y continuar interactuando con el sistema.
+La aplicación permite crear una persona con todos sus datos principales, seleccionar un tipo de vehículo desde un submenú, asignárselo y mostrar la información completa en consola. El menú es iterativo y se repite hasta que el usuario sale del sistema.
 
 ## Diagrama de clases
 
@@ -28,7 +28,6 @@ classDiagram
         -direccion: Direccion
         -fechaNacimiento: Date
         -vehiculo: Vehiculo
-        +isMenorEdad(): boolean
         +toString(): String
     }
 
@@ -48,7 +47,8 @@ classDiagram
         -permisoVigente: boolean
         -color: String
         -cantidadRuedas: int
-        +imprimir() * String
+        +imprimir(): String
+        +toString(): String
     }
 
     class Automovil {
@@ -63,7 +63,6 @@ classDiagram
 
     class DateUtil {
         +stringToDate(dateS: String, format: String)$ Date
-        +dateToString(date: Date, format: String)$ String
         +calcularEdad(fechaNacimiento: Date, fechaActual: Date)$ int
     }
 
@@ -72,13 +71,13 @@ classDiagram
     Persona --> Direccion : tiene
     Persona --> Vehiculo : posee
     Main ..> Menu : usa
-    Menu ..> Persona : gestiona
+    Menu ..> Persona : crea
     Persona ..> DateUtil : usa
 ```
 
 ## Estructura de Clases y Relaciones
 
-- `Menu` usa listas de `Persona` para registrar y consultar personas por posición o RUN.
-- `Persona` agrega el atributo `vehiculo` y `fechaNacimiento`, y mantiene una relación con `Direccion`.
-- `Vehiculo` es abstracta y sus clases hijas especializan el comportamiento por tipo de vehículo.
-- `DateUtil` centraliza la lógica de fecha y edad, siendo una dependencia del modelo de persona.
+- `Menu` contiene el submenú de vehículos y valida la entrada del usuario mediante métodos auxiliares.
+- `Persona` integra `Direccion`, `fechaNacimiento` y `Vehiculo` como parte del modelo de dominio.
+- `Automovil` y `Motocicleta` representan dos especializaciones concretas del concepto general `Vehiculo`.
+- `DateUtil` brinda soporte para manejar fechas, validaciones y cálculos relacionados con la edad.

@@ -1,20 +1,35 @@
-# Proyecto 11 - Gestión de Personas con Vehículos y Validación de Edad
+# Proyecto 12 - Listado y búsqueda de personas
 
-Este proyecto consolida la estructura del sistema de personas, direcciones y vehículos, añadiendo lógica para manejar fechas y evaluar si una persona es menor de edad.
+Este proyecto refuerza la gestión de varias personas con un menú que permite crearlas, listarlas y buscarlas por posición o RUN.
 
 ## ¿Qué hace?
 
-La clase `Menu` permite crear personas con su dirección, fecha de nacimiento y vehículo. Luego, las personas se pueden listar, visualizar por posición y buscar por RUN. Además, `Persona` incluye una validación de mayoría de edad mediante `DateUtil`.
+El programa usa una lista de personas para almacenar múltiples registros. El usuario puede ingresar datos de una persona, asociarle una dirección y un vehículo, consultar todos los registros o buscar un elemento específico según su ubicación o run.
 
 ## Diagrama de clases
 
 ```mermaid
 classDiagram
-    class DateUtil {
-        -DateUtil()
-        +stringToDate(dateS: String, format: String)$ Date
-        +dateToString(date: Date, format: String)$ String
-        +calcularEdad(fechaNacimiento: Date, fechaActual: Date)$ int
+    class Main {
+        +main(args: String[])$ void
+    }
+
+    class Menu {
+        +menu(): void
+        +submenuVehiculo(): Vehiculo
+    }
+
+    class Persona {
+        -run: int
+        -dv: String
+        -nombres: String
+        -apellidoPaterno: String
+        -apellidoMaterno: String
+        -direccion: Direccion
+        -fechaNacimiento: Date
+        -vehiculo: Vehiculo
+        +isMenorEdad(): boolean
+        +toString(): String
     }
 
     class Direccion {
@@ -33,7 +48,8 @@ classDiagram
         -permisoVigente: boolean
         -color: String
         -cantidadRuedas: int
-        +imprimir() * String
+        +imprimir(): String
+        +toString(): String
     }
 
     class Automovil {
@@ -46,26 +62,10 @@ classDiagram
         +imprimir(): String
     }
 
-    class Persona {
-        -run: int
-        -dv: String
-        -nombres: String
-        -apellidoPaterno: String
-        -apellidoMaterno: String
-        -direccion: Direccion
-        -fechaNacimiento: Date
-        -vehiculo: Vehiculo
-        +isMenorEdad(): boolean
-        +toString(): String
-    }
-
-    class Menu {
-        +submenuVehiculo(): Vehiculo
-        +menu(): void
-    }
-
-    class Main {
-        +main(args: String[])$ void
+    class DateUtil {
+        +stringToDate(dateS: String, format: String)$ Date
+        +dateToString(date: Date, format: String)$ String
+        +calcularEdad(fechaNacimiento: Date, fechaActual: Date)$ int
     }
 
     Vehiculo <|-- Automovil
@@ -79,7 +79,7 @@ classDiagram
 
 ## Estructura de Clases y Relaciones
 
-- El sistema usa herencia para diferenciar `Automovil` y `Motocicleta` bajo `Vehiculo`.
-- `Persona` se relaciona con `Direccion` y con `Vehiculo`, además de depender de `DateUtil` para la lógica de edad.
-- `Menu` facilita la creación y consulta del conjunto de personas.
-- `Main` es el punto de entrada del programa y delega la lógica en `Menu`.
+- `Menu` gestiona una colección de `Persona` y permite navegar por los registros de forma interactiva.
+- `Persona` contiene `Direccion`, `fechaNacimiento` y `Vehiculo`, consolidando los conceptos de composición y asociación.
+- `Vehiculo` define la jerarquía general, mientras `Automovil` y `Motocicleta` representan especializaciones del dominio.
+- `DateUtil` actúa como apoyo para fechas y cálculos asociados a la edad de la persona.

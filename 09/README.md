@@ -1,15 +1,24 @@
-# Proyecto 08 - Herencia de Vehículos
+# Proyecto 09 - Vehículos y menú interactivo
 
-Este proyecto introduce la jerarquía de clases para modelar vehículos. Se define una clase general `Vehiculo` y dos especializaciones: `Automovil` y `Motocicleta`.
+Este proyecto combina la herencia de vehículos con un menú interactivo para crear personas y asociarles un vehículo.
 
 ## ¿Qué hace?
 
-El sistema representa distintas categorías de vehículo con atributos comunes y específicos, y cada una implementa el comportamiento abstracto `imprimir()`. El programa principal de la práctica permite organizar la relación entre personas y vehículos según el dominio propuesto.
+La clase `Menu` ofrece la posibilidad de seleccionar un tipo de vehículo, completar sus datos y asignarlo a una persona. El programa genera una sola persona a la vez, la guarda en memoria y la imprime en pantalla.
 
 ## Diagrama de clases
 
 ```mermaid
 classDiagram
+    class Main {
+        +main(args: String[])$ void
+    }
+
+    class Menu {
+        +menu(): void
+        +submenuVehiculo(): Vehiculo
+    }
+
     class Vehiculo {
         <<abstract>>
         -modelo: String
@@ -18,20 +27,18 @@ classDiagram
         -permisoVigente: boolean
         -color: String
         -cantidadRuedas: int
-        +imprimir() * String
+        +imprimir(): String
         +toString(): String
     }
 
     class Automovil {
         -mecanico: boolean
         +imprimir(): String
-        +toString(): String
     }
 
     class Motocicleta {
         -tipoEmbreague: String
         +imprimir(): String
-        +toString(): String
     }
 
     class Persona {
@@ -41,6 +48,7 @@ classDiagram
         -apellidoPaterno: String
         -apellidoMaterno: String
         -direccion: Direccion
+        -fechaNacimiento: Date
         -vehiculo: Vehiculo
         +toString(): String
     }
@@ -53,15 +61,23 @@ classDiagram
         +toString(): String
     }
 
+    class DateUtil {
+        +stringToDate(dateS: String, format: String)$ Date
+        +calcularEdad(fechaNacimiento: Date, fechaActual: Date)$ int
+    }
+
     Vehiculo <|-- Automovil
     Vehiculo <|-- Motocicleta
     Persona --> Direccion : tiene
     Persona --> Vehiculo : posee
+    Main ..> Menu : usa
+    Menu ..> Persona : crea
+    Persona ..> DateUtil : usa
 ```
 
 ## Estructura de Clases y Relaciones
 
-- `Vehiculo` es una clase abstracta que define atributos y el método `imprimir()` que deben implementar sus subclases.
-- `Automovil` y `Motocicleta` heredan de `Vehiculo`, lo que representa la especialización del dominio.
-- `Persona` mantiene dos asociaciones: una con `Direccion` y otra con `Vehiculo`.
-- La relación entre `Persona` y `Vehiculo` expresa que una persona puede poseer un vehículo.
+- `Menu` es el punto de entrada del sistema y gestiona la creación de `Persona` y su `Vehiculo`.
+- `Vehiculo` representa la herencia del dominio y `Automovil`/`Motocicleta` agregan detalle específico.
+- `Persona` mantiene una relación con `Direccion`, `DateUtil` y el vehículo asociado.
+- El sistema combina herencia, composición y dependencia para modelar una persona con sus datos y transporte.
