@@ -76,3 +76,10 @@ classDiagram
     Menu ..> Persona : gestiona
     Persona ..> DateUtil : usa
 ```
+
+## Estructura de Clases y Relaciones
+
+- El sistema usa herencia para diferenciar `Automovil` y `Motocicleta` bajo `Vehiculo`.
+- `Persona` se relaciona con `Direccion` y con `Vehiculo`, además de depender de `DateUtil` para la lógica de edad.
+- `Menu` facilita la creación y consulta del conjunto de personas.
+- `Main` es el punto de entrada del programa y delega la lógica en `Menu`.

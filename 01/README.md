@@ -14,3 +14,9 @@ classDiagram
         +main(args: String[])$ void
     }
 ```
+
+## Estructura de Clases y Relaciones
+
+- La clase `Main` es la entrada principal del programa.
+- No hay herencia ni composición en este ejercicio; la lógica es simplemente ejecutar una impresión en consola.
+- El proyecto sirve como ejemplo inicial para validar que Java y Maven están correctamente configurados.

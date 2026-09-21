@@ -58,3 +58,10 @@ classDiagram
     Persona --> Direccion : tiene
     Persona --> Vehiculo : posee
 ```
+
+## Estructura de Clases y Relaciones
+
+- `Vehiculo` es una clase abstracta que define atributos y el método `imprimir()` que deben implementar sus subclases.
+- `Automovil` y `Motocicleta` heredan de `Vehiculo`, lo que representa la especialización del dominio.
+- `Persona` mantiene dos asociaciones: una con `Direccion` y otra con `Vehiculo`.
+- La relación entre `Persona` y `Vehiculo` expresa que una persona puede poseer un vehículo.

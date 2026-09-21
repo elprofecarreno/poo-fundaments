@@ -42,3 +42,9 @@ classDiagram
     Main ..> Persona : crea e imprime
     Persona ..> DateUtil : usa
 ```
+
+## Estructura de Clases y Relaciones
+
+- `Persona` tiene una asociación con `Direccion`, representando la ubicación de la persona.
+- `DateUtil` es una clase auxiliar de dependencia estática, utilizada para convertir fechas y calcular la edad.
+- `Main` hace uso de `Persona` para crear instancias con datos reales del dominio y mostrar resultados en consola.

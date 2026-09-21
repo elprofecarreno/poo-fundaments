@@ -76,3 +76,10 @@ classDiagram
     Menu ..> Persona : gestiona
     Persona ..> DateUtil : usa
 ```
+
+## Estructura de Clases y Relaciones
+
+- Este es el proyecto más completo del conjunto: incorpora herencia, asociación, dependencia y gestión de listas.
+- `Vehiculo` define el comportamiento general y se especializa en `Automovil` y `Motocicleta`.
+- `Persona` guarda `Direccion`, `fechaNacimiento` y `Vehiculo`, y depende de `DateUtil` para validar la edad.
+- `Menu` orquesta la creación, búsqueda y listado de personas, mientras `Main` inicia la ejecución del sistema.

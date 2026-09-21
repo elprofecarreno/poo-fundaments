@@ -39,3 +39,9 @@ classDiagram
     Persona --> Direccion : tiene
     Main ..> Persona : crea e imprime
 ```
+
+## Estructura de Clases y Relaciones
+
+- La relación principal es una asociación entre `Persona` y `Direccion`.
+- Una persona tiene una dirección asociada como atributo de tipo `Direccion`.
+- `Main` depende de `Persona` para construir e imprimir los objetos en consola.

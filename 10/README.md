@@ -75,3 +75,10 @@ classDiagram
     Menu ..> Persona : gestiona
     Persona ..> DateUtil : usa
 ```
+
+## Estructura de Clases y Relaciones
+
+- `Menu` usa listas de `Persona` para registrar y consultar personas por posición o RUN.
+- `Persona` agrega el atributo `vehiculo` y `fechaNacimiento`, y mantiene una relación con `Direccion`.
+- `Vehiculo` es abstracta y sus clases hijas especializan el comportamiento por tipo de vehículo.
+- `DateUtil` centraliza la lógica de fecha y edad, siendo una dependencia del modelo de persona.

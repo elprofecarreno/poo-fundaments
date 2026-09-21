@@ -27,3 +27,9 @@ classDiagram
 
     Main ..> Persona : crea e imprime
 ```
+
+## Estructura de Clases y Relaciones
+
+- `Persona` es una clase de dominio que encapsula los datos personales de una persona.
+- Lombok genera automáticamente getters, setters y constructores, reduciendo el código repetitivo.
+- `Main` mantiene una dependencia directa con `Persona`, ya que crea e imprime objetos del tipo definido.

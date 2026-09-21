@@ -70,3 +70,10 @@ classDiagram
     Menu ..> Persona : crea y lista
     Menu ..> Vehiculo : crea
 ```
+
+## Estructura de Clases y Relaciones
+
+- `Menu` actúa como punto de entrada para la creación de objetos y la interacción con el usuario.
+- `Vehiculo` define la estructura general y `Automovil`/`Motocicleta` definen variantes concretas.
+- La clase `Persona` conecta a la persona con su `Direccion` y su `Vehiculo`.
+- `Main` usa `Menu` como controlador del flujo principal del programa.

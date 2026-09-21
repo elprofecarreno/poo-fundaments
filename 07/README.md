@@ -51,3 +51,10 @@ classDiagram
     Persona --> Direccion : tiene
     Persona ..> DateUtil : usa
 ```
+
+## Estructura de Clases y Relaciones
+
+- `Menu` es la clase que coordina la interacción con el usuario y orquesta la creación de objetos.
+- `Persona` y `Direccion` forman una asociación de composición lógica: cada persona tiene una dirección.
+- `DateUtil` actúa como clase de utilidad que respalda operaciones relacionadas con fechas.
+- `Main` depende de `Menu` para iniciar la ejecución del programa.

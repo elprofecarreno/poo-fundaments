@@ -37,3 +37,9 @@ classDiagram
 
     Main ..> Persona : crea e imprime
 ```
+
+## Estructura de Clases y Relaciones
+
+- La clase `Persona` encapsula sus atributos con acceso privado y expone métodos de lectura y escritura.
+- La clase `Main` crea objetos de tipo `Persona`, les asigna valores y los imprime en consola.
+- No hay herencia en este proyecto; la relación principal es de dependencia entre `Main` y `Persona`.

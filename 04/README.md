@@ -37,4 +37,8 @@ classDiagram
     Persona --> Direccion : tiene
 ```
 
-> Este README refleja la estructura de clases visible en el diagrama de referencia del proyecto 04.
+## Estructura de Clases y Relaciones
+
+- El diagrama representa la asociación entre `Persona` y `Direccion`.
+- Una persona está compuesta por una dirección o, al menos, tiene una referencia a ella como atributo.
+- Este ejercicio sirve como referencia conceptual para la modelación de clases antes de pasar a la implementación Java concreta.
