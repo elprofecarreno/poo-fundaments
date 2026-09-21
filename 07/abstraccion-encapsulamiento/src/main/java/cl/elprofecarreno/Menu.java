@@ -14,28 +14,6 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    private int obtenerNumeroTeclado(String message, Scanner sc) {
-        boolean flag = true;
-        int value = 0;
-        while (flag) {
-            try {
-                System.out.print(message + ": ");
-                value = sc.nextInt();
-                flag = false;
-            } catch (Exception ex) {
-                System.out.println("ERROR: el valor ingresado debe ser númerico.");
-                sc.next();
-            }
-        }
-        return value;
-    }
-
-    private String obtenerTextoTeclado(String message, Scanner sc) {
-        System.out.print(message + ": ");
-        String value = sc.next();
-        return value;
-    }
-
     public void menu() {
 
         int opcion = 0;
@@ -43,32 +21,30 @@ public class Menu {
         Persona p = null;
 
         while (opcion != 3) {
-            System.out.println("\t\t\t MENÚ");
-            System.out.println("\n\n1- Crear Persona.");
-            System.out.println("\n2- Listar Persona.");
-            System.out.println("\n3- Salir.");
-            Scanner sc = new Scanner(System.in);
-
-            opcion = obtenerNumeroTeclado("Selecciona una opción", sc);
-
+            
+        System.out.println("\t\t\t MENÚ");
+        System.out.println("\n\n1- Crear Persona.");
+        System.out.println("\n2- Listar Persona.");
+        System.out.println("\n3- Salir.");
+        Scanner sc = new Scanner(System.in);
+        opcion = sc.nextInt();
+        
             switch (opcion) {
                 case 1:
                     System.out.println("CREANDO PERSONA.");
                     System.out.print("Ingrese run sin dígito verificador: ");
-                    int run = obtenerNumeroTeclado("Ingrese run sin dígito verificador", sc);
-                    String dv = obtenerTextoTeclado("Ingrese dígito verificador", sc);
-                    String nombres = obtenerTextoTeclado("Ingrese nombres", sc);
-                    String apellidoPaterno = obtenerTextoTeclado("Apellido paterno", sc);
-                    String apellidoMaterno = obtenerTextoTeclado("Apellido materno", sc);
-                    System.out.println("CREANDO DIRECCIÓN.");
-                    String calle = obtenerTextoTeclado("calle", sc);
-                    String numero = obtenerTextoTeclado("número", sc);
-                    String comuna = obtenerTextoTeclado("comuna", sc);
-                    String region = obtenerTextoTeclado("región", sc);
-                    
-                    Direccion d = new Direccion(calle, numero, comuna, region);                    
+                    int run = sc.nextInt();
+                    System.out.println("Ingrese dígito verificador");
+                    String dv = sc.next();
+                    System.out.println("Ingrese nombres");
+                    String nombres = sc.next();
+                    System.out.println("Apellido paterno");
+                    String apellidoPaterno = sc.next();
+                    System.out.println("Apellido materno");
+                    String apellidoMaterno = sc.next();
+
                     p = new Persona(run, dv, nombres, apellidoPaterno,
-                            apellidoMaterno, d, null);
+                            apellidoMaterno, null, null);
                     break;
                 case 2:
                     System.out.println("Mostrando Datos de la Persona.");

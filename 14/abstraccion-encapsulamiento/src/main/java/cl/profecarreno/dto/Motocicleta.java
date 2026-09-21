@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -17,6 +18,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@SuperBuilder
 public class Motocicleta extends Vehiculo {
     
     private String tipoEmbreague;
@@ -28,8 +30,10 @@ public class Motocicleta extends Vehiculo {
 
     @Override
     public String toString() {
-        
-        return super.toString() + " - Motocicleta{" + "tipoEmbreague=" + tipoEmbreague + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString())
+                .append("\nTipo Embreague: ").append(tipoEmbreague);
+        return sb.toString();
     }
         
 }

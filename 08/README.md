@@ -1,37 +1,19 @@
-# Proyecto 08 - Herencia de Vehículos
+# Proyecto 07 - Menú y Registro de Personas
 
-Este proyecto introduce la jerarquía de clases para modelar vehículos. Se define una clase general `Vehiculo` y dos especializaciones: `Automovil` y `Motocicleta`.
+Este ejercicio agrega interacción con el usuario mediante un menú en consola para crear y listar personas.
 
 ## ¿Qué hace?
 
-El sistema representa distintas categorías de vehículo con atributos comunes y específicos, y cada una implementa el comportamiento abstracto `imprimir()`. El programa principal de la práctica permite organizar la relación entre personas y vehículos según el dominio propuesto.
+La clase `Menu` permite ingresar los datos de una persona, crear su dirección y almacenarla en memoria para luego mostrarla. El programa se apoya en una estructura de persona con dirección y en la capa de utilidades para manejar fechas.
 
 ## Diagrama de clases
 
 ```mermaid
 classDiagram
-    class Vehiculo {
-        <<abstract>>
-        -modelo: String
-        -marca: String
-        -anio: int
-        -permisoVigente: boolean
-        -color: String
-        -cantidadRuedas: int
-        +imprimir() * String
-        +toString(): String
-    }
-
-    class Automovil {
-        -mecanico: boolean
-        +imprimir(): String
-        +toString(): String
-    }
-
-    class Motocicleta {
-        -tipoEmbreague: String
-        +imprimir(): String
-        +toString(): String
+    class Menu {
+        -obtenerNumeroTeclado(message: String, sc: Scanner): int
+        -obtenerTextoTeclado(message: String, sc: Scanner): String
+        +menu(): void
     }
 
     class Persona {
@@ -41,7 +23,7 @@ classDiagram
         -apellidoPaterno: String
         -apellidoMaterno: String
         -direccion: Direccion
-        -vehiculo: Vehiculo
+        +Persona(...)
         +toString(): String
     }
 
@@ -50,18 +32,29 @@ classDiagram
         -numero: String
         -comuna: String
         -region: String
+        +Direccion(...)
         +toString(): String
     }
 
-    Vehiculo <|-- Automovil
-    Vehiculo <|-- Motocicleta
+    class DateUtil {
+        +stringToDate(dateS: String, format: String)$ Date
+        +calcularEdad(fechaNacimiento: Date, fechaActual: Date)$ int
+    }
+
+    class Main {
+        +main(args: String[])$ void
+    }
+
+    Main ..> Menu : usa
+    Menu ..> Persona : crea y muestra
+    Menu --> Direccion : crea
     Persona --> Direccion : tiene
-    Persona --> Vehiculo : posee
+    Persona ..> DateUtil : usa
 ```
 
 ## Estructura de Clases y Relaciones
 
-- `Vehiculo` es una clase abstracta que define atributos y el método `imprimir()` que deben implementar sus subclases.
-- `Automovil` y `Motocicleta` heredan de `Vehiculo`, lo que representa la especialización del dominio.
-- `Persona` mantiene dos asociaciones: una con `Direccion` y otra con `Vehiculo`.
-- La relación entre `Persona` y `Vehiculo` expresa que una persona puede poseer un vehículo.
+- `Menu` es la clase que coordina la interacción con el usuario y orquesta la creación de objetos.
+- `Persona` y `Direccion` forman una asociación de composición lógica: cada persona tiene una dirección.
+- `DateUtil` actúa como clase de utilidad que respalda operaciones relacionadas con fechas.
+- `Main` depende de `Menu` para iniciar la ejecución del programa.

@@ -103,13 +103,7 @@ public class Menu {
         boolean flag = true;
 
         Vehiculo v = null;
-        String modelo = "";
-        String marca = "";
-        int anio = 0;
-        boolean permisoVigente = false;
-        String color = "";
-        int cantidadRuedas = 0;
-        
+
         while (flag) {
             System.out.println("\t\t\t SELECCIONAR TIPO VEHÍCULO");
             System.out.println("\n\n1- Automovil.");
@@ -117,36 +111,22 @@ public class Menu {
             opcion = obtenerNumeroTeclado("Ingrese una opción");
             switch (opcion) {
                 case 1:
-                    modelo = obtenerTextoTeclado("Ingresar Modelo");
-                    marca = obtenerTextoTeclado("Ingresar Marca");
-                    anio = obtenerNumeroTeclado("Ingresar Año Fabricación");
-                    permisoVigente = obtenerBooleanTeclado("¿Está vigente el permiso?");
-                    color = obtenerTextoTeclado("Ingresar Color");
-                    cantidadRuedas = obtenerNumeroTeclado("Ingresar Cantidad Ruedas");
-                    boolean mecanico = obtenerBooleanTeclado("Es mécanico");
-
-                    v = Automovil.builder().modelo(modelo).marca(marca)
-                            .anio(anio).permisoVigente(permisoVigente).color(color)
-                            .cantidadRuedas(cantidadRuedas).mecanico(mecanico).build();
-                    
-                 
+                    boolean isMecanico = obtenerBooleanTeclado("Es mécanico");
+                    v = new Automovil(isMecanico);
+                    int anio = obtenerNumeroTeclado("Ingresar Año Fabricación");
+                    v.setAnio(anio);
+                    int cantidadPuertas = obtenerNumeroTeclado("Ingresar Cantidad Puertas");
+                    v.setCantidadRuedas(cantidadPuertas);
+                    String color = obtenerTextoTeclado("Ingresar Color");
+                    v.setColor(color);
+                    String marca = obtenerTextoTeclado("Ingresar Marca");
+                    v.setMarca(marca);
+                    String modelo = obtenerTextoTeclado("Ingresar Modelo");
+                    v.setMarca(modelo);
                     flag = false;
                     break;
                 case 2:
-                    
-                    modelo = obtenerTextoTeclado("Ingresar Modelo");
-                    marca = obtenerTextoTeclado("Ingresar Marca");
-                    anio = obtenerNumeroTeclado("Ingresar Año Fabricación");
-                    permisoVigente = obtenerBooleanTeclado("¿Está vigente el permiso?");
-                    color = obtenerTextoTeclado("Ingresar Color");
-                    cantidadRuedas = obtenerNumeroTeclado("Ingresar Cantidad Ruedas");
-                    String tipoEmbreague = obtenerTextoLineaTeclado("Ingrese tipo embreague");
-
-                    v = (Vehiculo)Motocicleta.builder().modelo(modelo).marca(marca)
-                            .anio(anio).permisoVigente(permisoVigente).color(color)
-                            .cantidadRuedas(cantidadRuedas).tipoEmbreague(tipoEmbreague).build();
-                    
-
+                    v = new Motocicleta();      
                     flag = false;
                     break;                
 
@@ -167,7 +147,7 @@ public class Menu {
         while (opcion != 3) {
             System.out.println("\t\t\t MENÚ");
             System.out.println("\n\n1- Crear Persona.");
-            System.out.println("\n2- Imprimir Datos Persona.");
+            System.out.println("\n2- Listar Persona.");
             System.out.println("\n3- Salir.");
 
             opcion = obtenerNumeroTeclado("Selecciona una opción");

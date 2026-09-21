@@ -52,7 +52,7 @@ public class Persona {
                 .append("\nApellido Paterno: ").append(apellidoPaterno)
                 .append("\nApellido Materno: ").append(apellidoMaterno)
                 .append("\nDirección: ").append(direccion)
-                .append("\nFecha Nacimiento: ").append(DateUtil.dateToString(fechaNacimiento, "dd/MM/yyyy"))
+                .append("\nFecha Nacimiento: ").append(fechaNacimiento)
                 .append(vehiculo);
                 
         return sb.toString();

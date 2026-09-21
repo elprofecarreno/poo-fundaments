@@ -33,15 +33,6 @@ public abstract class Vehiculo {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\nVehículo")
-                .append("\n\nModelo: ").append(modelo)
-                .append("\nMarca: ").append(marca)
-                .append("\nAño: ").append(anio)
-                .append("\nPermiso Vigente: ").append(permisoVigente)
-                .append("\nColor: ").append(color)
-                .append("\nCantidad de Rueds: ").append(cantidadRuedas);
-
-        return sb.toString();
+        return "Vehiculo{" + "modelo=" + modelo + ", marca=" + marca + ", anio=" + anio + ", permisoVigente=" + permisoVigente + ", color=" + color + ", cantidadRuedas=" + cantidadRuedas + '}';
     }
 }

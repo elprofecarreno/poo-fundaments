@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -17,6 +18,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@SuperBuilder
+
 public abstract class Vehiculo {
     
   private String modelo;
@@ -30,6 +33,15 @@ public abstract class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "modelo=" + modelo + ", marca=" + marca + ", anio=" + anio + ", permisoVigente=" + permisoVigente + ", color=" + color + ", cantidadRuedas=" + cantidadRuedas + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nVehículo")
+                .append("\n\nModelo: ").append(modelo)
+                .append("\nMarca: ").append(marca)
+                .append("\nAño: ").append(anio)
+                .append("\nPermiso Vigente: ").append(permisoVigente)
+                .append("\nColor: ").append(color)
+                .append("\nCantidad de Rueds: ").append(cantidadRuedas);
+
+        return sb.toString();
     }
 }

@@ -26,8 +26,12 @@ public class Direccion {
 
     @Override
     public String toString() {
-        return "Direccion{" + "calle=" + calle + ", numero=" + numero + ", comuna=" + comuna + ", region=" + region + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nCalle: ").append(calle)
+                .append("\nNúmero: ").append(numero)
+                .append("\nComuna: ").append(comuna)
+                .append("\nRegión: ").append(region);
+        return sb.toString();
     }
 
-    
 }

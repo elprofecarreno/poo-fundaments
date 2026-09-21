@@ -1,10 +1,10 @@
-# Proyecto 12 - Sistema Completo de Personas, Dirección, Fecha y Vehículos
+# Proyecto 11 - Gestión de Personas con Vehículos y Validación de Edad
 
-Este proyecto representa la versión más completa del curso: el sistema gestiona personas con su dirección, fecha de nacimiento, vehículo asociado y operaciones de búsqueda e impresión.
+Este proyecto consolida la estructura del sistema de personas, direcciones y vehículos, añadiendo lógica para manejar fechas y evaluar si una persona es menor de edad.
 
 ## ¿Qué hace?
 
-La aplicación permite ingresar múltiples personas desde un menú en consola, crear vehículos de tipo automóvil o motocicleta, asociarlos a la persona y realizar búsquedas por posición y por RUN. También se integra la lógica para determinar si una persona es menor de edad, usando utilidades de fecha.
+La clase `Menu` permite crear personas con su dirección, fecha de nacimiento y vehículo. Luego, las personas se pueden listar, visualizar por posición y buscar por RUN. Además, `Persona` incluye una validación de mayoría de edad mediante `DateUtil`.
 
 ## Diagrama de clases
 
@@ -79,7 +79,7 @@ classDiagram
 
 ## Estructura de Clases y Relaciones
 
-- Este es el proyecto más completo del conjunto: incorpora herencia, asociación, dependencia y gestión de listas.
-- `Vehiculo` define el comportamiento general y se especializa en `Automovil` y `Motocicleta`.
-- `Persona` guarda `Direccion`, `fechaNacimiento` y `Vehiculo`, y depende de `DateUtil` para validar la edad.
-- `Menu` orquesta la creación, búsqueda y listado de personas, mientras `Main` inicia la ejecución del sistema.
+- El sistema usa herencia para diferenciar `Automovil` y `Motocicleta` bajo `Vehiculo`.
+- `Persona` se relaciona con `Direccion` y con `Vehiculo`, además de depender de `DateUtil` para la lógica de edad.
+- `Menu` facilita la creación y consulta del conjunto de personas.
+- `Main` es el punto de entrada del programa y delega la lógica en `Menu`.

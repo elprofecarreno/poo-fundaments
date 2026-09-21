@@ -26,6 +26,12 @@ public class DateUtil {
         SimpleDateFormat formatter = new SimpleDateFormat(format);
         return formatter.parse(dateS);
     }
+    
+    public static String dateToString(Date date, String format) {
+
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.format(date);
+    }
 
     public static int calcularEdad(Date fechaNacimiento, Date fechaActual) {
         if (fechaNacimiento == null || fechaActual == null) {

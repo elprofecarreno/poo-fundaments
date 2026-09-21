@@ -30,10 +30,7 @@ public class Automovil extends Vehiculo {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.toString())
-                .append("\nMécanico: ").append(mecanico);
-        return sb.toString();
+        return super.toString() + " - Automovil{" + "isMecanico=" + mecanico + '}';
     }
     
     

@@ -10,9 +10,7 @@ import cl.profecarreno.dto.Direccion;
 import cl.profecarreno.dto.Motocicleta;
 import cl.profecarreno.dto.Persona;
 import cl.profecarreno.dto.Vehiculo;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -163,7 +161,7 @@ public class Menu {
     public void menu() {
 
         int opcion = 0;
-        List<Persona> personas = new ArrayList<>();
+
         Persona p = null;
 
         while (opcion != 3) {
@@ -177,6 +175,7 @@ public class Menu {
             switch (opcion) {
                 case 1:
                     System.out.println("CREANDO PERSONA.");
+                    System.out.print("Ingrese run sin dígito verificador: ");
                     int run = obtenerNumeroTeclado("Ingrese run sin dígito verificador");
                     String dv = obtenerTextoTeclado("Ingrese dígito verificador");
                     String nombres = obtenerTextoTeclado("Ingrese nombres");
@@ -193,15 +192,13 @@ public class Menu {
                     
                     p = new Persona(run, dv, nombres, apellidoPaterno,
                             apellidoMaterno, d, fechaNacimiento, v);
-                    personas.add(p);
                     break;
                 case 2:
-                    System.out.println("LISTADO DE PERSONAS");
-                    System.out.println("CANTIDAD: " + personas.size());
-                    
-                    for(int i = 0; i < personas.size(); i++){
-                    
-                        System.out.println(personas.get(i));
+                    System.out.println("Mostrando Datos de la Persona.");
+                    if (p == null) {
+                        System.out.println("ERROR: Persona debe ser creada previamente.");
+                    } else {
+                        System.out.println(p.toString());
                     }
                     break;
                 case 3:

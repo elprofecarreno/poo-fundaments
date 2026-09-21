@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 /**
  *
@@ -18,10 +17,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Getter
 @Setter
-@SuperBuilder
 public class Automovil extends Vehiculo {
     
-    private boolean mecanico;
+    private boolean isMecanico;
     
     @Override
     public String imprimir() {
@@ -30,7 +28,7 @@ public class Automovil extends Vehiculo {
 
     @Override
     public String toString() {
-        return super.toString() + " - Automovil{" + "isMecanico=" + mecanico + '}';
+        return super.toString() + " - Automovil{" + "isMecanico=" + isMecanico + '}';
     }
     
     

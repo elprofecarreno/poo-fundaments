@@ -1,10 +1,12 @@
-# Proyecto de Gestión de Personas y Vehículos
+# Proyecto 12 - Sistema Completo de Personas, Dirección, Fecha y Vehículos
 
-Este proyecto es una aplicación Java orientada a objetos que permite gestionar personas, sus direcciones y los vehículos asociados a ellas (automóviles o motocicletas).
+Este proyecto representa la versión más completa del curso: el sistema gestiona personas con su dirección, fecha de nacimiento, vehículo asociado y operaciones de búsqueda e impresión.
 
-## Diagrama de Clases UML
+## ¿Qué hace?
 
-A continuación se presenta el diagrama de clases que describe la estructura y las relaciones del sistema:
+La aplicación permite ingresar múltiples personas desde un menú en consola, crear vehículos de tipo automóvil o motocicleta, asociarlos a la persona y realizar búsquedas por posición y por RUN. También se integra la lógica para determinar si una persona es menor de edad, usando utilidades de fecha.
+
+## Diagrama de clases
 
 ```mermaid
 classDiagram
@@ -20,7 +22,28 @@ classDiagram
         -numero: String
         -comuna: String
         -region: String
-        +toString() String
+        +toString(): String
+    }
+
+    class Vehiculo {
+        <<abstract>>
+        -modelo: String
+        -marca: String
+        -anio: int
+        -permisoVigente: boolean
+        -color: String
+        -cantidadRuedas: int
+        +imprimir() * String
+    }
+
+    class Automovil {
+        -mecanico: boolean
+        +imprimir(): String
+    }
+
+    class Motocicleta {
+        -tipoEmbreague: String
+        +imprimir(): String
     }
 
     class Persona {
@@ -32,68 +55,31 @@ classDiagram
         -direccion: Direccion
         -fechaNacimiento: Date
         -vehiculo: Vehiculo
-        +isMenorEdad() boolean
-        +toString() String
-    }
-
-    class Vehiculo {
-        <<abstract>>
-        -modelo: String
-        -marca: String
-        -anio: int
-        -permisoVigente: boolean
-        -color: String
-        -cantidadRuedas: int
-        +imprimir()* String
-        +toString() String
-    }
-
-    class Automovil {
-        -mecanico: boolean
-        +imprimir() String
-        +toString() String
-    }
-
-    class Motocicleta {
-        -tipoEmbreague: String
-        +imprimir() String
-        +toString() String
+        +isMenorEdad(): boolean
+        +toString(): String
     }
 
     class Menu {
-        -obtenerNumeroTeclado(message: String) int
-        -obtenerTextoTeclado(message: String) String
-        -obtenerTextoLineaTeclado(message: String) String
-        -obtenerBooleanTeclado(message: String) boolean
-        -obtenerDecimalTeclado(message: String) double
-        -obtenerDateTeclado(message: String) Date
-        +submenuVehiculo() Vehiculo
-        +findByRun(run: int, personas: List~Persona~) Persona
-        +menu() void
+        +submenuVehiculo(): Vehiculo
+        +menu(): void
     }
 
     class Main {
         +main(args: String[])$ void
     }
 
-    %% Relaciones de Herencia
     Vehiculo <|-- Automovil
     Vehiculo <|-- Motocicleta
-
-    %% Relaciones de Asociación / Composición
-    Persona "1" --> "1" Direccion : tiene
-    Persona "1" --> "0..1" Vehiculo : posee
-
-    %% Relaciones de Dependencia
+    Persona --> Direccion : tiene
+    Persona --> Vehiculo : posee
     Main ..> Menu : usa
     Menu ..> Persona : gestiona
-    Menu ..> Vehiculo : crea
     Persona ..> DateUtil : usa
 ```
 
 ## Estructura de Clases y Relaciones
 
-- **Herencia**: `Automovil` y `Motocicleta` heredan de la clase abstracta `Vehiculo`.
-- **Asociación**: La clase `Persona` contiene referencias a `Direccion` y a `Vehiculo`.
-- **Utilidades**: `DateUtil` provee métodos estáticos para la manipulación y formateo de fechas.
-- **Interacción**: La clase `Menu` gestiona el flujo de entrada de datos y las operaciones CRUD básicas sobre las personas registradas.
+- Este es el proyecto más completo del conjunto: incorpora herencia, asociación, dependencia y gestión de listas.
+- `Vehiculo` define el comportamiento general y se especializa en `Automovil` y `Motocicleta`.
+- `Persona` guarda `Direccion`, `fechaNacimiento` y `Vehiculo`, y depende de `DateUtil` para validar la edad.
+- `Menu` orquesta la creación, búsqueda y listado de personas, mientras `Main` inicia la ejecución del sistema.

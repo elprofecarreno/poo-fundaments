@@ -166,13 +166,12 @@ public class Menu {
         List<Persona> personas = new ArrayList<>();
         Persona p = null;
 
-        while (opcion != 5) {
+        while (opcion != 4) {
             System.out.println("\t\t\t MENÚ");
             System.out.println("\n\n1- Crear Persona.");
             System.out.println("\n2- Imprimir Datos Persona.");
             System.out.println("\n3- Buscar Datos Persona por posición.");
-            System.out.println("\n4- Buscar Datos Persona por run.");
-            System.out.println("\n5- Salir.");
+            System.out.println("\n4- Salir.");
 
             opcion = obtenerNumeroTeclado("Selecciona una opción");
 
@@ -220,24 +219,6 @@ public class Menu {
                     
                     break;
                 case 4:
-                    int runFind = obtenerNumeroTeclado("Ingrese run para buscar");
-                    Persona aux = null;
-                    for(Persona per: personas){
-                        
-                        if(per.getRun() == runFind){
-                            aux = per;
-                        }
-                    }
-                    
-                    if(aux == null){
-                        System.out.println("Persona no existe en la lista.");
-                    }else {
-                        System.out.println("Los datos de la persona con run "+ runFind + " son: ");
-                        System.out.println(aux);
-                    }
-                    
-                    break;
-                case 5:
                     System.out.println("Bye...");
                     break;
                 default:

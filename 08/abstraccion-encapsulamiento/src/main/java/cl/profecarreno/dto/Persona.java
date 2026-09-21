@@ -4,6 +4,7 @@
  */
 package cl.profecarreno.dto;
 
+import cl.profecarreno.dto.Direccion;
 import cl.elprofecarreno.util.DateUtil;
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,6 @@ public class Persona {
     private String apellidoMaterno;
     private Direccion direccion;
     private Date fechaNacimiento;
-    private Vehiculo vehiculo;
     
     public boolean isMenorEdad(){
     
@@ -43,7 +43,8 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "run=" + run + ", dv=" + dv + ", nombres=" + nombres + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", vehiculo=" + vehiculo.imprimir() + '}';
+        return "Persona{" + "run=" + run + ", dv=" + dv + ", nombres=" + nombres + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + '}';
     }
+
             
 }

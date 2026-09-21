@@ -30,10 +30,8 @@ public class Motocicleta extends Vehiculo {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.toString())
-                .append("\nTipo Embreague: ").append(tipoEmbreague);
-        return sb.toString();
+        
+        return super.toString() + " - Motocicleta{" + "tipoEmbreague=" + tipoEmbreague + '}';
     }
         
 }

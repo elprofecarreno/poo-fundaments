@@ -1,23 +1,15 @@
-# Proyecto 09 - Vehículos y Menú de Gestión
+# Proyecto 08 - Herencia de Vehículos
 
-Este ejercicio combina la herencia de vehículos con un menú interactivo para crear personas y asociarles un vehículo.
+Este proyecto introduce la jerarquía de clases para modelar vehículos. Se define una clase general `Vehiculo` y dos especializaciones: `Automovil` y `Motocicleta`.
 
 ## ¿Qué hace?
 
-La clase `Menu` ofrece la posibilidad de seleccionar un tipo de vehículo, completar sus datos y asignarlo a una persona. La aplicación permite gestionar personas que tienen dirección y vehículo, mostrando todo en consola.
+El sistema representa distintas categorías de vehículo con atributos comunes y específicos, y cada una implementa el comportamiento abstracto `imprimir()`. El programa principal de la práctica permite organizar la relación entre personas y vehículos según el dominio propuesto.
 
 ## Diagrama de clases
 
 ```mermaid
 classDiagram
-    class Menu {
-        -obtenerNumeroTeclado(message: String): int
-        -obtenerTextoTeclado(message: String): String
-        -obtenerBooleanTeclado(message: String): boolean
-        +submenuVehiculo(): Vehiculo
-        +menu(): void
-    }
-
     class Vehiculo {
         <<abstract>>
         -modelo: String
@@ -27,16 +19,19 @@ classDiagram
         -color: String
         -cantidadRuedas: int
         +imprimir() * String
+        +toString(): String
     }
 
     class Automovil {
         -mecanico: boolean
         +imprimir(): String
+        +toString(): String
     }
 
     class Motocicleta {
         -tipoEmbreague: String
         +imprimir(): String
+        +toString(): String
     }
 
     class Persona {
@@ -58,22 +53,15 @@ classDiagram
         +toString(): String
     }
 
-    class Main {
-        +main(args: String[])$ void
-    }
-
     Vehiculo <|-- Automovil
     Vehiculo <|-- Motocicleta
     Persona --> Direccion : tiene
     Persona --> Vehiculo : posee
-    Main ..> Menu : usa
-    Menu ..> Persona : crea y lista
-    Menu ..> Vehiculo : crea
 ```
 
 ## Estructura de Clases y Relaciones
 
-- `Menu` actúa como punto de entrada para la creación de objetos y la interacción con el usuario.
-- `Vehiculo` define la estructura general y `Automovil`/`Motocicleta` definen variantes concretas.
-- La clase `Persona` conecta a la persona con su `Direccion` y su `Vehiculo`.
-- `Main` usa `Menu` como controlador del flujo principal del programa.
+- `Vehiculo` es una clase abstracta que define atributos y el método `imprimir()` que deben implementar sus subclases.
+- `Automovil` y `Motocicleta` heredan de `Vehiculo`, lo que representa la especialización del dominio.
+- `Persona` mantiene dos asociaciones: una con `Direccion` y otra con `Vehiculo`.
+- La relación entre `Persona` y `Vehiculo` expresa que una persona puede poseer un vehículo.

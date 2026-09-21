@@ -166,12 +166,11 @@ public class Menu {
         List<Persona> personas = new ArrayList<>();
         Persona p = null;
 
-        while (opcion != 4) {
+        while (opcion != 3) {
             System.out.println("\t\t\t MENÚ");
             System.out.println("\n\n1- Crear Persona.");
             System.out.println("\n2- Imprimir Datos Persona.");
-            System.out.println("\n3- Buscar Datos Persona por posición.");
-            System.out.println("\n4- Salir.");
+            System.out.println("\n3- Salir.");
 
             opcion = obtenerNumeroTeclado("Selecciona una opción");
 
@@ -201,24 +200,11 @@ public class Menu {
                     System.out.println("CANTIDAD: " + personas.size());
                     
                     for(int i = 0; i < personas.size(); i++){
-                        System.out.println("Posición: " + i);
+                    
                         System.out.println(personas.get(i));
                     }
                     break;
-                    
                 case 3:
-                    int posicion = obtenerNumeroTeclado("Ingresar posición para buscar persona");
-                    
-                    if(posicion < 0 ){
-                        System.out.println("ERROR: la posición debe ser positiva");
-                    }else if(posicion >= personas.size()){
-                        System.out.println("ERROR: no existen elementos en esa posición, posición va entre 0 y " + (personas.size() -1));
-                    }else{
-                        System.out.println(personas.get(posicion).toString());
-                    }
-                    
-                    break;
-                case 4:
                     System.out.println("Bye...");
                     break;
                 default:

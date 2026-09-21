@@ -4,7 +4,6 @@
  */
 package cl.profecarreno.dto;
 
-import cl.profecarreno.dto.Direccion;
 import cl.elprofecarreno.util.DateUtil;
 import java.util.Date;
 import lombok.AllArgsConstructor;

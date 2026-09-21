@@ -43,7 +43,19 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "run=" + run + ", dv=" + dv + ", nombres=" + nombres + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", vehiculo=" + vehiculo.imprimir() + '}';
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("\nPersona: ")
+                .append("\nRun: ").append(run)
+                .append("\nDígito Verificador: ").append(dv)
+                .append("\nNombres: ").append(nombres)
+                .append("\nApellido Paterno: ").append(apellidoPaterno)
+                .append("\nApellido Materno: ").append(apellidoMaterno)
+                .append("\nDirección: ").append(direccion)
+                .append("\nFecha Nacimiento: ").append(DateUtil.dateToString(fechaNacimiento, "dd/MM/yyyy"))
+                .append(vehiculo);
+                
+        return sb.toString();
     }
             
 }

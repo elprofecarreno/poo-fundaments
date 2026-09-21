@@ -43,14 +43,14 @@ public class Menu {
         String value = sc.next();
         return value;
     }
-    
+
     private String obtenerTextoLineaTeclado(String message) {
         Scanner sc = new Scanner(System.in);
         System.out.print(message + ": ");
         String value = sc.nextLine();
         return value;
     }
-    
+
     private boolean obtenerBooleanTeclado(String message) {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
@@ -66,7 +66,7 @@ public class Menu {
         }
         return value;
     }
-    
+
     private double obtenerDecimalTeclado(String message) {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
@@ -82,7 +82,7 @@ public class Menu {
         }
         return value;
     }
-    
+
     private Date obtenerDateTeclado(String message) {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
@@ -99,8 +99,8 @@ public class Menu {
         }
         return value;
     }
-    
-    public Vehiculo submenuVehiculo(){
+
+    public Vehiculo submenuVehiculo() {
         int opcion = 0;
         boolean flag = true;
 
@@ -111,7 +111,7 @@ public class Menu {
         boolean permisoVigente = false;
         String color = "";
         int cantidadRuedas = 0;
-        
+
         while (flag) {
             System.out.println("\t\t\t SELECCIONAR TIPO VEHÍCULO");
             System.out.println("\n\n1- Automovil.");
@@ -130,12 +130,11 @@ public class Menu {
                     v = Automovil.builder().modelo(modelo).marca(marca)
                             .anio(anio).permisoVigente(permisoVigente).color(color)
                             .cantidadRuedas(cantidadRuedas).mecanico(mecanico).build();
-                    
-                 
+
                     flag = false;
                     break;
                 case 2:
-                    
+
                     modelo = obtenerTextoTeclado("Ingresar Modelo");
                     marca = obtenerTextoTeclado("Ingresar Marca");
                     anio = obtenerNumeroTeclado("Ingresar Año Fabricación");
@@ -144,20 +143,33 @@ public class Menu {
                     cantidadRuedas = obtenerNumeroTeclado("Ingresar Cantidad Ruedas");
                     String tipoEmbreague = obtenerTextoLineaTeclado("Ingrese tipo embreague");
 
-                    v = (Vehiculo)Motocicleta.builder().modelo(modelo).marca(marca)
+                    v = (Vehiculo) Motocicleta.builder().modelo(modelo).marca(marca)
                             .anio(anio).permisoVigente(permisoVigente).color(color)
                             .cantidadRuedas(cantidadRuedas).tipoEmbreague(tipoEmbreague).build();
-                    
 
                     flag = false;
-                    break;                
+                    break;
 
                 default:
                     System.out.println("OPCIÓN INVALIDA.");
             }
         }
-        
+
         return v;
+    }
+
+    public Persona findByRun(int run, List<Persona> personas) {
+        Persona aux = null;
+        boolean flag = true;
+        int i = 0;
+        while(flag && i < personas.size()){
+             if (personas.get(i).getRun() == run) {
+                aux = personas.get(i);
+                flag = false;
+            }
+             i++;
+        }
+        return aux;
     }
 
     public void menu() {
@@ -166,13 +178,14 @@ public class Menu {
         List<Persona> personas = new ArrayList<>();
         Persona p = null;
 
-        while (opcion != 5) {
+        while (opcion != 6) {
             System.out.println("\t\t\t MENÚ");
             System.out.println("\n\n1- Crear Persona.");
             System.out.println("\n2- Imprimir Datos Persona.");
             System.out.println("\n3- Buscar Datos Persona por posición.");
             System.out.println("\n4- Buscar Datos Persona por run.");
-            System.out.println("\n5- Salir.");
+            System.out.println("\n5- Buscar Persona por run y Borrar.");
+            System.out.println("\n6- Salir.");
 
             opcion = obtenerNumeroTeclado("Selecciona una opción");
 
@@ -190,9 +203,9 @@ public class Menu {
                     String comuna = obtenerTextoTeclado("comuna");
                     String region = obtenerTextoTeclado("región");
                     Date fechaNacimiento = obtenerDateTeclado("Ingrese la fecha de nacimiento (dd/mm/yyyy)");
-                    Direccion d = new Direccion(calle, numero, comuna, region);              
+                    Direccion d = new Direccion(calle, numero, comuna, region);
                     Vehiculo v = submenuVehiculo();
-                    
+
                     p = new Persona(run, dv, nombres, apellidoPaterno,
                             apellidoMaterno, d, fechaNacimiento, v);
                     personas.add(p);
@@ -200,44 +213,50 @@ public class Menu {
                 case 2:
                     System.out.println("LISTADO DE PERSONAS");
                     System.out.println("CANTIDAD: " + personas.size());
-                    
-                    for(int i = 0; i < personas.size(); i++){
+
+                    for (int i = 0; i < personas.size(); i++) {
                         System.out.println("Posición: " + i);
                         System.out.println(personas.get(i));
                     }
                     break;
-                    
+
                 case 3:
                     int posicion = obtenerNumeroTeclado("Ingresar posición para buscar persona");
-                    
-                    if(posicion < 0 ){
+
+                    if (posicion < 0) {
                         System.out.println("ERROR: la posición debe ser positiva");
-                    }else if(posicion >= personas.size()){
-                        System.out.println("ERROR: no existen elementos en esa posición, posición va entre 0 y " + (personas.size() -1));
-                    }else{
+                    } else if (posicion >= personas.size()) {
+                        System.out.println("ERROR: no existen elementos en esa posición, posición va entre 0 y " + (personas.size() - 1));
+                    } else {
                         System.out.println(personas.get(posicion).toString());
                     }
-                    
+
                     break;
                 case 4:
                     int runFind = obtenerNumeroTeclado("Ingrese run para buscar");
-                    Persona aux = null;
-                    for(Persona per: personas){
-                        
-                        if(per.getRun() == runFind){
-                            aux = per;
-                        }
-                    }
-                    
-                    if(aux == null){
-                        System.out.println("Persona no existe en la lista.");
-                    }else {
-                        System.out.println("Los datos de la persona con run "+ runFind + " son: ");
+                    Persona aux = findByRun(runFind, personas);
+
+                    if (aux == null) {
+                        System.out.println("ERROR: Persona no existe en la lista.");
+                    } else {
+                        System.out.println("Los datos de la persona con run " + runFind + " son: ");
                         System.out.println(aux);
                     }
-                    
+
                     break;
                 case 5:
+                    int runRemove = obtenerNumeroTeclado("Ingrese run para buscar");
+                    Persona auxRemove = findByRun(runRemove, personas);
+                    
+                    if (auxRemove == null) {
+                        System.out.println("ERROR: Persona no existe en la lista.");
+                    } else {
+                        personas.remove(auxRemove);
+                        System.out.println("Persona run: " + runRemove + " eliminada del sistema.");
+                    }                    
+                    
+                    break;                    
+                case 6:
                     System.out.println("Bye...");
                     break;
                 default:
