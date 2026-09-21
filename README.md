@@ -4,7 +4,8 @@ Este repositorio contiene una serie de ejercicios prácticos de Programación Or
 
 ## Índice de proyectos
 
-> Videos de instalación descartados de la asociación con el repositorio: `Instalación Apache Netbeans` y `Instalar Apache Netbeans en Linux`.
+Videos de instalación: [Instalación Apache Netbeans](https://youtu.be/FyIqizc9t0k) y [Instalación Apache Netbeans en Linux](https://youtu.be/gBkCYiTq6ro).
+
 
 - [01 - Hello World](01/README.md)  
   Proyecto inicial para verificar que el entorno Java/Maven funciona correctamente. Imprime un mensaje de bienvenida en consola.  
