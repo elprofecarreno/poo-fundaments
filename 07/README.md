@@ -1,4 +1,4 @@
-# Proyecto 07 - Menú de creación de personas
+# Proyecto 07 - Menú y Registro de Personas
 
 Este proyecto introduce la primera versión del menú interactivo del curso. La idea principal es capturar los datos de una persona desde la consola y mostrarlos al final.
 

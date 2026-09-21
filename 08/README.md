@@ -1,4 +1,4 @@
-# Proyecto 08 - Herencia de vehículos
+# Proyecto 08 - Herencia de Vehículos
 
 Este proyecto introduce la jerarquía de clases para modelar vehículos. Se define una clase base abstracta `Vehiculo` y dos especializaciones: `Automovil` y `Motocicleta`.
 

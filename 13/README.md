@@ -1,6 +1,6 @@
-# Proyecto 13 - Búsqueda y eliminación de personas
+# Proyecto 13 - Listar por RUN
 
-Este proyecto representa la versión más avanzada del manejo de personas con datos completos, búsqueda por parámetros y eliminación por RUN.
+Este proyecto representa la versión en que se busca una persona por su RUN para mostrar sus datos completos dentro de la lista.
 
 ## ¿Qué hace?
 

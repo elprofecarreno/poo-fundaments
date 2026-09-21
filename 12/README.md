@@ -1,6 +1,6 @@
-# Proyecto 12 - Listado y búsqueda de personas
+# Proyecto 12 - Listar por posición
 
-Este proyecto refuerza la gestión de varias personas con un menú que permite crearlas, listarlas y buscarlas por posición o RUN.
+Este proyecto refuerza la gestión de varias personas con un menú que permite crearlas, listarlas y consultar la información según la posición dentro de la lista.
 
 ## ¿Qué hace?
 

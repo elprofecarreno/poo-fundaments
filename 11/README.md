@@ -1,6 +1,6 @@
-# Proyecto 11 - Persona con dirección, fecha y vehículo
+# Proyecto 11 - Crear y listar todos los datos
 
-Este proyecto consolida la relación entre la persona y su contexto completo: dirección, fecha de nacimiento y vehículo asociado.
+Este proyecto consolida la relación entre la persona y su contexto completo: dirección, fecha de nacimiento y vehículo asociado, y además permite crear registros y listar toda la información disponible.
 
 ## ¿Qué hace?
 
