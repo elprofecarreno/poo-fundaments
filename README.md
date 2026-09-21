@@ -56,11 +56,11 @@ Este repositorio contiene una serie de ejercicios prácticos de Programación Or
 
 - [13 - Listar por RUN](13/README.md)  
   Se busca y muestra una persona por su RUN dentro de la lista.  
-  Video: [Herencia y Polimorfismo (POO) - Parte 12 List (ArrayList) Buscar Elementos.](https://youtu.be/fhS5cdv59kU)
+  Video: [Herencia y Polimorfismo (POO) - Parte 12 List (ArrayList) Buscar Elementos](https://youtu.be/Wex7C_y-rtY)
 
 - [14 - Búsqueda y eliminación por RUN](14/README.md)  
   Proyecto final del conjunto en esta rama del repositorio, manteniendo la lógica de gestión con eliminación por RUN.  
-  Video: [Herencia y Polimorfismo (POO) - Parte 12 List (ArrayList) Buscar Elementos.](https://youtu.be/fhS5cdv59kU)
+  Video: [ Herencia y Polimorfismo (POO) - Parte 13 List (ArrayList) Buscar y Eliminar Elementos](https://youtu.be/fhS5cdv59kU)
 
 ## Próximos proyectos
 
