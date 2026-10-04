@@ -63,10 +63,10 @@ Videos de instalación: [Instalación Apache Netbeans](https://youtu.be/FyIqizc9
   Proyecto final del conjunto en esta rama del repositorio, manteniendo la lógica de gestión con eliminación por RUN.  
   Video: [ Herencia y Polimorfismo (POO) - Parte 13 List (ArrayList) Buscar y Eliminar Elementos](https://youtu.be/fhS5cdv59kU)
 
-## Próximos proyectos
-
-- Proyecto 15 - Polimorfismo avanzado
-  Se ampliará el uso de polimorfismo con más tipos de implementación, sobrecarga y comportamiento dinámico.
+- [15 - Herencia y Polimorfismo (POO) - Parte 14 List (ArrayList) Buscar y Actualizar Elementos](15/README.md)  
+  Se incorpora la actualización por RUN dentro de la lista de personas, además de una pequeña refactorización para ordenar el flujo y la lógica de dominio.  
+  Video: [15 - Herencia y Polimorfismo (POO) - Parte 14 List (ArrayList) Buscar y Actualizar Elementos](https://youtu.be/Zx6MDouKL-A)  
+  GitHub: [Repositorio Proyecto 15](https://github.com/elprofecarreno/poo-fundaments/tree/main/15)
 
 ## Objetivo general
 
