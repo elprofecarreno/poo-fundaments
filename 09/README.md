@@ -57,8 +57,8 @@ flowchart TB
     end
 
     MenuClass --> Helpers
-    AutoClass --|>|extiende| VehiculoClass
-    MotoClass --|>|extiende| VehiculoClass
+    AutoClass -->|extiende| VehiculoClass
+    MotoClass -->|extiende| VehiculoClass
     MenuClass -->|Instancia dinámicamente| AutoClass
     MenuClass -->|Instancia dinámicamente| MotoClass
     PersonaClass -->|Asociación polimórfica| VehiculoClass

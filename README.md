@@ -184,8 +184,8 @@ flowchart TB
     MenuClass --> DateUtil
     Persona --> Direccion
     Persona --> Vehiculo
-    Vehiculo <|-- Automovil
-    Vehiculo <|-- Motocicleta
+    Automovil -->|hereda de| Vehiculo
+    Motocicleta -->|hereda de| Vehiculo
     Persona -.-> DateUtil
 ```
 

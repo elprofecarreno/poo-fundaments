@@ -73,8 +73,8 @@ flowchart TB
     CreateMethod --> Persona
     Persona --> Direccion
     Persona --> Vehiculo
-    Vehiculo <|-- Automovil
-    Vehiculo <|-- Motocicleta
+    Automovil -->|hereda de| Vehiculo
+    Motocicleta -->|hereda de| Vehiculo
     MenuLoop -->|Gestiona| ListaPersonas
 ```
 
@@ -154,7 +154,7 @@ sequenceDiagram
     participant Menu as Menu.java
     participant Find as findByRun()
     participant Modify as modify(p)
-    participant Create as create(run)
+    participant CreateMethod as create(run)
     participant Target as Persona objetivo (en Heap)
 
     Usuario->>Menu: Selecciona opción 6 (Buscar por RUN y Actualizar)
@@ -165,10 +165,10 @@ sequenceDiagram
     Find-->>Menu: Retorna Target (instancia existente)
 
     Menu->>Modify: modify(Target)
-    Modify->>Create: create(Target.getRun())
-    Create->>Usuario: Solicita nuevos nombres, dirección, vehículo...
-    Usuario->>Create: Proporciona nuevos datos
-    Create-->>Modify: Retorna objeto auxiliar con nuevos datos
+    Modify->>CreateMethod: create(Target.getRun())
+    CreateMethod->>Usuario: Solicita nuevos nombres, dirección, vehículo...
+    Usuario->>CreateMethod: Proporciona nuevos datos
+    CreateMethod-->>Modify: Retorna objeto auxiliar con nuevos datos
 
     Note over Modify, Target: Mutación atómica en el Heap sin cambiar identidad
     Modify->>Target: setNombres(aux.getNombres())
